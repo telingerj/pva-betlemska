@@ -1,0 +1,37 @@
+.red
+{
+    color: #ff0000;
+    font-size: 20px;
+    text-align: center;
+
+}
+#green
+{
+    color: green;
+}
+.box
+{
+    width: 200px;
+    height: 100px;
+    background-color: aqua;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid black;
+}
+.big
+{
+    background-color: red;
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.small
+{
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
