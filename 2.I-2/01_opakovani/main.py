@@ -73,6 +73,17 @@ else:
 # vytvořit soubor 0.txt, zapsat do něj vstup od uživatele
 # vytvořit soubor 1.txt, který bude obsahovat počet znaků v souboru 0.txt
 
+"""
+l = 0
+with open("0.txt", "w", encoding="utf-8") as f:
+    v = input("zadej text: ")
+    f.write(v)
+    l = len(v)
+
+with open("1.txt", "w", encoding="utf-8") as f:
+    f.write(str(l))
+"""
+
 
 # OOP
 # třída člověk obsahující jméno, příjmení, datum narození
@@ -81,3 +92,59 @@ else:
 # majitel auta může přepsat auto na někoho jiného
 # majitel auta může autu přidat řidiče
 # řidič může s autem ujet nějakou vzdálenost, přičte se do nájezdu
+
+
+class Clovek:
+    def __init__(self, jmeno, prijmeni, datum_narozeni):
+        self.jmeno = jmeno
+        self.prijmeni = prijmeni
+        self.datum_narozeni = datum_narozeni
+
+
+    def prepsat(self, auto, novy_majitel):
+        if auto.majitel != self:
+            return
+        auto.majitel = novy_majitel
+
+
+    def pridat_ridice(self, auto, ridic):
+        if auto.majitel != self:
+            return
+        auto.ridic = ridic
+
+
+    def jet(self, auto, vzdalenost):
+        if auto.ridic != self:
+            return
+        auto.najezd += vzdalenost
+
+class Auto:
+    def __init__(self, znacka, rok_vyroby, barva, ridic, majitel):
+        self.znacka = znacka
+        self.rok_vyroby = rok_vyroby
+        self.barva = barva
+        self.ridic = ridic
+        self.majitel = majitel
+        self.najezd = 0
+
+c1 = Clovek("Franta", "Novák", 1997)
+c2 = Clovek("Pepa", "Pokorný", 1985)
+
+a1 = Auto("Škoda", 2009, "červená", c1, c1)
+a2 = Auto("Škoda", 2009, "červená", c2, c2)
+
+c1.jet(a1, 5)  # Franta je řidič auta, může s ním jet
+print(a1.najezd)
+c2.jet(a1, 5)
+print(a1.najezd)
+
+c1.pridat_ridice(a1, c2)  # Franta změnil řidiče na Pepu
+c2.jet(a1, 1)
+print(a1.najezd)
+c1.jet(a1, 1)
+print(a1.najezd)
+
+c2.prepsat(a2, c1)  # přepsání auta na jiného člověka
+print(a2.majitel.jmeno)
+c2.prepsat(a2, c2)  # Pepa už auto nevlastní, nemůže ho tedy přepsat
+print(a2.majitel.jmeno)
