@@ -1,0 +1,16 @@
+5 8 7 4 2 1
+5 7 4 2 1 8
+5 4 2 1 7 8
+4 2 1 5 7 8
+
+verze1:
+oapkuj tolikrát kolik je počet čísel:
+    pro i: do počet čísel - 1:
+        je i > i + 1?:
+            prohoď čísla na indexech i a i + 1
+
+verze2:
+pro j: do počet čísel:
+    pro i: do počet čísel - 1 - j:
+        je i > i + 1?:
+            prohoď čísla na indexech i a i + 1

@@ -19,7 +19,7 @@ def is_sorted(l):
         if l[i] > l[i + 1]:
             return False
     return True
-
+"""
 cislo = 1
 seznam = [1, 2, 3, 4, 5]
 a(cislo)
@@ -34,3 +34,4 @@ swap(seznam2, 0, 4)
 swap(seznam2, 3, 4)
 print(seznam2)
 print(is_sorted(seznam2))
+"""
