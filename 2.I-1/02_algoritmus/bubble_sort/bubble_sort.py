@@ -1,4 +1,4 @@
-from prace_se_seznamy import swap
+from utils.prace_se_seznamy import swap
 
 def bubble_sort1(l):
     for j in range(len(l) - 1):
