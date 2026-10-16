@@ -5,4 +5,4 @@ def a(cislo):
         a(cislo - 1)
         print(cislo)
 
-a(2)
+a(100)

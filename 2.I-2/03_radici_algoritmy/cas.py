@@ -7,12 +7,9 @@ import time
 
 l = file_write_read.read_nums()
 zacatek = time.time()
-select_sort.select_sort(l)
+#select_sort.select_sort(l)
+l.sort()
 konec = time.time()
 print("čas:", konec - zacatek)
 
-l = file_write_read.read_nums()
-zacatek = time.time()
-insert_sort.insert_sort(l)
-konec = time.time()
-print("čas:", konec - zacatek)
+file_write_read.write_nums(l)
