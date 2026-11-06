@@ -13,10 +13,24 @@ class Pen
 
     public function addAnimal(Animal $animal)
     {
-        array_push($this->animals, $animal);
+        if (sizeof($this->animals) < $this->size)
+        {
+            array_push($this->animals, $animal);
+        }
     }
 
-    //TODO: removeAnimal
+    public function removeAnimal(Animal $animal)
+    {
+        $pozice = 0;
+        for ($i = 0; $i < sizeof($this->animals); $i++)
+        {
+            if ($this->animals[$i] == $animal)
+            {
+                $pozice = $i;
+            }
+        }
+        array_splice($this->animals, $pozice, 1);
+    }
 
     public function listAnimals()
     {
@@ -26,5 +40,10 @@ class Pen
             $r .= $animal->getSpecies() . " " . $animal->getName() . ", ";
         }
         return $r;
+    }
+
+    public function getAnimals()
+    {
+        return $this->animals;
     }
 }
