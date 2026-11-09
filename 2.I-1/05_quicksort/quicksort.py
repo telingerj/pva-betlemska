@@ -1,14 +1,15 @@
 def divide(l, left, right):
     less = []
     greater = []
-    for i in range(1, len(l)):
-        if l[i] < l[0]:
+    for i in range(left + 1, right + 1):
+        if l[i] < l[left]:
             less.append(l[i])
-        elif l[i] >= l[0]:
+        elif l[i] >= l[left]:
             greater.append(l[i])
+    l = less + [l[left]] + greater
     print(less)
     print(greater)
-    # TODO: použít rozsah left, right
+    print(l)
 
 l = [5, 4, 7, 8, 9, 6, 3, 2, 1, 0]
-divide(l, 5, 9)
+divide(l, 0, len(l) - 1)
