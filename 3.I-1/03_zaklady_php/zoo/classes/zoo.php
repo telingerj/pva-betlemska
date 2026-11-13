@@ -29,7 +29,17 @@ class Zoo
             $counter += sizeof($pen->getAnimals());
         }
         return $counter;
-        //TODO: spočítat všechna zvířata v celé zoo
-        // (ve všech výbězích)
+    }
+
+    public function containsPen(Pen $pen)
+    {
+        foreach ($this->pens as $currentPen)
+        {
+            if ($pen == $currentPen)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
