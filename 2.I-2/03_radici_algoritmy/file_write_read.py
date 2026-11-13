@@ -9,6 +9,16 @@ def gen_nums(count):
             f.write(num)
 
 
+def gen_nums_sorted(count):
+    with open("nums", "w") as f:
+        for i in range(count):
+            if i > 0:
+                f.write("\n")
+            num = str(i)
+            f.write(num)
+
+
+
 def read_nums():
     with open("nums", "r") as f:
         return list(map(int, f.read().split("\n")))

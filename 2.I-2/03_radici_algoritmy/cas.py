@@ -2,14 +2,27 @@ import file_write_read  #  načetli jsme si do tohoto programu funkce z jiného 
 import bubble_sort
 import select_sort
 import insert_sort
+import quciksort
 import time
 
 
-l = file_write_read.read_nums()
-zacatek = time.time()
-#select_sort.select_sort(l)
-l.sort()
-konec = time.time()
-print("čas:", konec - zacatek)
 
-file_write_read.write_nums(l)
+l1 = file_write_read.read_nums()
+l2 = l1.copy()
+l3 = l1.copy()
+
+
+zacatek = time.time()
+select_sort.select_sort(l1)
+konec = time.time()
+print("čas selectsort:", konec - zacatek, "s")
+
+zacatek = time.time()
+bubble_sort.bubble_sort2(l2)
+konec = time.time()
+print("čas bubblesort:", konec - zacatek, "s")
+
+zacatek = time.time()
+quciksort.quicksort(l3)
+konec = time.time()
+print("čas quicksort:", konec - zacatek, "s")
